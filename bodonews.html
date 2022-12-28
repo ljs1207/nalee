@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The Anchor Object</h1>
+<h2>Access an a Element</h2>
+
+<a id="myAnchor" href="./135.html" target="_self">기타 찬송</a>
+
+<p>Click "Try it" to get the URL of the link.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  const element = document.getElementById("myAnchor").href;
+  document.getElementById("demo").innerHTML = element;
+}
+</script>
+
+</body>
+</html>
