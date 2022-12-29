@@ -7,23 +7,31 @@
     <h1>This is a Audiotest</h1>
     <p>저 높은 곳을 향하여.</p>
     
-    <audio controls display="none">
-       <source src="543.mp3" type="audio/mp3">
+    <audio controls >
+       <source src="./music/543.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
-    <p>
-      <img src="./image/tonggt.png" alt="공석" width="122" height="100"></p>
+     
+    <button type="button"><a href="/playaudo.html" 
     
-      <a id="myAnchor" href="./135.html" target="_self">기타 찬송</a>
-      <p><a href="135.html">HTML tutorial</a></p>
+    
+      <a id="myAnchor" href="/135.html" target="_self">통기타 찬송</a>
+      <p><a href="135.html">찬송가통기타</a></p>
 
-<p id="demo"></p>
+    <p id="demo"></p>
+ <script>
+        const d = new Date().getMonth()+1;
+        document.getElementById("demo").innerHTML = d;
+ </script>  
 
-<script>
-function myFunction() {
-  const element = document.getElementById("myAnchor").href;
-  document.getElementById("demo").innerHTML = element;
+ <script>
+   function myFunction() {
+     const element = document.getElementById("myAnchor").href;
+     document.getElementById("demo").innerHTML = element;
 }
-</script>
+ </script>
+ <p><img src="./image/donggt.png alt="그림이없음" width="122" height="100"></p>
+    
+ 
  </body>
 </html>
