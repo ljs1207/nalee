@@ -1,8 +1,11 @@
+
+
 let now_playing = document.querySelector(".now-playing");
 let track_art = document.querySelector(".track-art");
 let track_name = document.querySelector(".track-name");
 let track_artist = document.querySelector(".track-artist");
 
+ 
 let playpause_btn = document.querySelector(".playpause-track");
 let next_btn = document.querySelector(".next-track");
 let prev_btn = document.querySelector(".prev-track");
@@ -10,12 +13,14 @@ let prev_btn = document.querySelector(".prev-track");
 let seek_slider = document.querySelector(".seek_slider");
 let volume_slider = document.querySelector(".volume_slider");
 let curr_time = document.querySelector(".current-time");
-let total_duration = document.querySelector(".total-duration");
 
+let total_duration = document.querySelector(".total-duration");
 let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
+
+   
 // Create new audio element
 let curr_track = document.createElement('audio');
 
@@ -46,18 +51,24 @@ let track_list = [
     path: "./mus/jamtrace/groove funk.mp3"
   },
 ];
+ //. document.getElementById("demo").innerText = track_list.length;
+
+const d = new Date();
+
+ document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/"+ d.getDay();
+
 
 function random_bg_color() {
 
-  // Get a number between 64 to 256 (for getting lighter colors)
-  let red = Math.floor(Math.random() * 256) + 64;
-  let green = Math.floor(Math.random() * 256) + 64;
-  let blue = Math.floor(Math.random() * 256) + 64;
+  //.. Get a number between 64 to 256 (for getting lighter colors)
+ // let red = Math.floor(Math.random() * 256) + 64;
+  //let green = Math.floor(Math.random() * 256) + 64;
+ // let blue = Math.floor(Math.random() * 256) + 64;
 
-  // Construct a color withe the given values
-  let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
+  //.. Construct a color withe the given values
+ // let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
 
-  // Set the background to that color
+  //.. Set the background to that color
   document.body.style.background = bgColor;
 }
 
