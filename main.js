@@ -54,8 +54,9 @@ let track_list = [
  //. document.getElementById("demo").innerText = track_list.length;
 
 const d = new Date();
-
- document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/"+ d.getDay();
+const days=["일","월","화","수","목","금","토",];
+let day=days[d.getDay()];
+ document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
 
 
 function random_bg_color() {
@@ -161,5 +162,4 @@ function seekUpdate() {
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
 }
-
 
