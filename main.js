@@ -19,7 +19,11 @@ let track_index = 0;
 let isPlaying = false;
 let updateTimer;
 
-
+const d = new Date();
+const days=["일","월","화","수","목","금","토",];
+let day=days[d.getDay()];
+ document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day; 
+ 
    
 // Create new audio element
 let curr_track = document.createElement('audio');
@@ -51,12 +55,8 @@ let track_list = [
     path: "./mus/jamtrace/groove funk.mp3"
   },
 ];
- //. document.getElementById("demo").innerText = track_list.length;
-
-const d = new Date();
-const days=["일","월","화","수","목","금","토",];
-let day=days[d.getDay()];
- document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
+  //document.getElementById("cur-date").innerText =d;
+// document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
 
 
 function random_bg_color() {
@@ -71,7 +71,7 @@ function random_bg_color() {
 
   //.. Set the background to that color
   document.body.style.background = bgColor;
-}
+}  
 
 function loadTrack(track_index) {
   clearInterval(updateTimer);
@@ -101,19 +101,21 @@ loadTrack(track_index);
 function playpauseTrack() {
   if (!isPlaying) playTrack();
   else pauseTrack();
+  const d = new Date();
+  document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
 }
 
 function playTrack() {
   curr_track.play();
   isPlaying = true;
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
-}
+ }
 
 function pauseTrack() {
   curr_track.pause();
   isPlaying = false;
-  playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';;
-}
+  playpause_btn.innerHTML = '<i class="fa fa-play-circle fa-5x"></i>';
+ }
 
 function nextTrack() {
   if (track_index < track_list.length - 1)
@@ -121,6 +123,7 @@ function nextTrack() {
   else track_index = 0;
   loadTrack(track_index);
   playTrack();
+  
 }
 
 function prevTrack() {
@@ -161,5 +164,4 @@ function seekUpdate() {
     curr_time.textContent = currentMinutes + ":" + currentSeconds;
     total_duration.textContent = durationMinutes + ":" + durationSeconds;
   }
-}
-
+}      
