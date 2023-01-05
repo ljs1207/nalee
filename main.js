@@ -5,6 +5,7 @@ let track_art = document.querySelector(".track-art");
 let track_name = document.querySelector(".track-name");
 let track_artist = document.querySelector(".track-artist");
 
+
  
 let playpause_btn = document.querySelector(".playpause-track");
 let next_btn = document.querySelector(".next-track");
@@ -32,25 +33,29 @@ let curr_track = document.createElement('audio');
 let track_list = [
   {
     name: "팝송",
-    artist: "7080 Best",
+    artist: "Bridge of Troubled Water",
+    autho:"Paul Simom",
     image: "./img/freedom.jpg",
     path: "./mus/Bridge Over.mp3"
   },
   {
-    name: "가요",
-    artist: "흘러간 노래",
+    name: "7080 가요",
+    artist: "사랑이야",
+    autho:"해바라기",
     image: "./img/kpop.jpg",
     path: "./mus/사랑으로.mp3"
   },
   {
     name: "Guitar Hymns",
-    artist: "통기타 찬송가",
+    artist: "135장 통기타 찬송가",
+    autho:"기타:임재수",
     image: "./img/tonggt.jpg",
     path: "./mus/135GT.mp3"
   },
   {
-    name: "Pentatonic",
-    artist: "펜타토닉 A단조 연습",
+    name: "펜타토닉 Pentatonic A단조 연습",
+    artist: "Groove Funk",
+    autho:"jamtrace",
     image: "./img/jamtrace.png",
     path: "./mus/jamtrace/groove funk.mp3"
   },
@@ -58,16 +63,45 @@ let track_list = [
   //document.getElementById("cur-date").innerText =d;
 // document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
 
+//------- Create an array of audio file URLs
+const playlist = [  'song1.mp3',  'song2.mp3',  'song3.mp3',];
+
+// Create an HTML5 audio element
+const audio = new Audio();
+
+// Set the first song as the current track
+let currentTrack = 0;
+audio.src = playlist[currentTrack];
+
+// Play the current track when the audio element is clicked
+audio.addEventListener('click', () => {
+  audio.play();
+});
+
+// When the current track ends, play the next track in the playlist
+audio.addEventListener('ended', () => {
+  currentTrack++;
+  if (currentTrack >= playlist.length) {
+    currentTrack = 0;
+  }
+  audio.src = playlist[currentTrack];
+  audio.play();
+});
+
+// Add the audio element to the page
+document.body.appendChild(audio);
+//-------------//
+
 
 function random_bg_color() {
 
   //.. Get a number between 64 to 256 (for getting lighter colors)
- // let red = Math.floor(Math.random() * 256) + 64;
-  //let green = Math.floor(Math.random() * 256) + 64;
- // let blue = Math.floor(Math.random() * 256) + 64;
+  let red = Math.floor(Math.random() * 256) + 64;
+  let green = Math.floor(Math.random() * 256) + 64;
+  let blue = Math.floor(Math.random() * 256) + 64;
 
   //.. Construct a color withe the given values
- // let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
+  let bgColor = "rgb(" + red + "," + green + "," + blue + ")";
 
   //.. Set the background to that color
   document.body.style.background = bgColor;
@@ -75,18 +109,19 @@ function random_bg_color() {
 
 function loadTrack(track_index) {
   clearInterval(updateTimer);
-  resetValues();
-  curr_track.src = track_list[track_index].path;
+  resetValues(); 
+  curr_track.src = track_list[track_index].path; //unplay
   curr_track.load();
-
+  
+  now_playing.textContent = "PLAYING " + track_list[track_index].name;
   track_art.style.backgroundImage = "url(" + track_list[track_index].image + ")";
-  track_name.textContent = track_list[track_index].name;
-  track_artist.textContent = track_list[track_index].artist;
-  now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
-
-  updateTimer = setInterval(seekUpdate, 1000);
-  curr_track.addEventListener("ended", nextTrack);
-  random_bg_color();
+  track_name.textContent = track_list[track_index].artist;
+  track_artist.textContent = track_list[track_index].autho;
+  //now_playing.textContent = "PLAYING " + (track_index + 1) + " OF " + track_list.length;
+  
+  updateTimer = setInterval(seekUpdate, 1000);         //진행바 숫자표시
+  curr_track.addEventListener("ended", nextTrack);     //다음곡으로
+  //random_bg_color();
 }
 
 function resetValues() {
