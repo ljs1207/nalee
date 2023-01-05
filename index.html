@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JS Music Player</title>
+  <title>Simple Music Player</title>
   <!-- Load FontAwesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
@@ -15,12 +15,11 @@
   
   <div class="player">
     <div class="details">
-      <div class="now-playing">PLAYING Title</div>
-      <div class="track-art" ></div>
+      <div class="now-playing">PLAYING x OF y</div>
+      <div class="track-art"></div>
       <div class="track-name">Track Name</div>
       <div class="track-artist">Track Artist</div>
-      <div class="track-autho">Track autho</div> 
-      <p id="cur-date">Today</p>
+      <p id="cur-date"><i class="fa fa-step-backward fa-2x"></i>Today</p>
     </div>
     <div class="buttons">
       <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>

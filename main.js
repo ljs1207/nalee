@@ -30,7 +30,7 @@ let day=days[d.getDay()];
 let curr_track = document.createElement('audio');
 
 // Define the tracks that have to be played
-let track_list = [
+/*let track_list = [
   {
     name: "팝송",
     artist: "Bridge of Troubled Water",
@@ -59,39 +59,64 @@ let track_list = [
     image: "./img/jamtrace.png",
     path: "./mus/jamtrace/groove funk.mp3"
   },
-];
+]; */
+
   //document.getElementById("cur-date").innerText =d;
-// document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
+ // document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
 
 //------- Create an array of audio file URLs
-const playlist = [  'song1.mp3',  'song2.mp3',  'song3.mp3',];
+const playlist = [  'song1.mp3',  'song2.mp3',  'song3.mp3'];
 
-// Create an HTML5 audio element
-const audio = new Audio();
+//.. Create an HTML5 audio element
+const audioelemet = new Audio();
 
-// Set the first song as the current track
+//.. Set the first song as the current track
 let currentTrack = 0;
-audio.src = playlist[currentTrack];
+audioelemet.src = playlist[currentTrack];
 
-// Play the current track when the audio element is clicked
-audio.addEventListener('click', () => {
-  audio.play();
+//.. Play the current track when the audio element is clicked
+audioelemet.addEventListener('click', () => {
+  audioelemet.play();
 });
 
-// When the current track ends, play the next track in the playlist
-audio.addEventListener('ended', () => {
+//.. When the current track ends, play the next track in the playlist
+audioelemet.addEventListener('ended', () => {
   currentTrack++;
   if (currentTrack >= playlist.length) {
     currentTrack = 0;
   }
-  audio.src = playlist[currentTrack];
-  audio.play();
+  audioelemet.src = playlist[currentTrack];
+  audioelemet.play();
 });
+audioelemet.play();
+//.. Add the audio element to the page
+document.body.appendChild(audioelemet);
+//-------------*/
 
-// Add the audio element to the page
-document.body.appendChild(audio);
-//-------------//
+/*let playlist = [
+  'song1.mp3',
+  'song2.mp3',
+  'song3.mp3'
+]; 
 
+let currentSong = 0;
+
+let audioElement = new Audio(playlist[currentSong]);
+
+audioElement.addEventListener('ended', function() {
+  currentSong++;
+  if (currentSong >= playlist.length) {
+    currentSong = 0;
+  }
+  audioElement.src = playlist[currentSong];
+  //audioElement.play();
+});
+document.getElementById("demo").innerHTML =d;
+//audioElement.play();  */
+
+
+
+R
 
 function random_bg_color() {
 
@@ -144,7 +169,7 @@ function playTrack() {
   curr_track.play();
   isPlaying = true;
   playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
- }
+}
 
 function pauseTrack() {
   curr_track.pause();

@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(168, 162, 143);
+  background-color: rgb(202, 164, 39);
 
   /*** Smoothly transition the background color */
   /*transition: background-color .5s; */
@@ -31,11 +31,11 @@ body {
 }
 
 .now-playing {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .track-name {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .track-artist {
