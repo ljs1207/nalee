@@ -19,8 +19,9 @@ let total_duration = document.querySelector(".total-duration");
 let track_index = 0;
 let isPlaying = false;
 let updateTimer; 
+
 // 실시간 보기
-<div class="onload" onclick="startTime()">현재시간보기</div>
+
 
 function startTime(){
   const d = new Date();
@@ -34,6 +35,10 @@ function startTime(){
   // const days=["일","월","화","수","목","금","토",];
   // let day = days[d.getDay()];
   //  document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day; 
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
 }
 
  
