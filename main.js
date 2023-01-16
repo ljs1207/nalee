@@ -18,12 +18,24 @@ let curr_time = document.querySelector(".current-time");
 let total_duration = document.querySelector(".total-duration");
 let track_index = 0;
 let isPlaying = false;
-let updateTimer;
+let updateTimer; 
+// 실시간 보기
+<div class="onload" onclick="startTime()">현재시간보기</div>
 
-const d = new Date();
-const days=["일","월","화","수","목","금","토",];
-let day=days[d.getDay()];
- document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day; 
+function startTime(){
+  const d = new Date();
+  let h = d.getHours();
+  let m = d.getMinutes();
+  let s = d.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('cur-date').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+  // const days=["일","월","화","수","목","금","토",];
+  // let day = days[d.getDay()];
+  //  document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day; 
+}
+
  
    
 // Create new audio element
@@ -33,10 +45,10 @@ let curr_track = document.createElement('audio');
 /*let track_list = [
   {
     name: "팝송",
-    artist: "Bridge of Troubled Water",
-    autho:"Paul Simom",
+    artist: "잊어야할 사랑",
+    autho:"김광석",
     image: "./img/freedom.jpg",
-    path: "./mus/Bridge Over.mp3"
+    path: "./mus/song1.mp3"
   },
   {
     name: "7080 가요",
@@ -65,7 +77,11 @@ let curr_track = document.createElement('audio');
  // document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
 
 //------- Create an array of audio file URLs
-const playlist = [  'song1.mp3',  'song2.mp3',  'song3.mp3'];
+const playlist = [  
+  './mus/song1.mp3',  
+  'song2.mp3',  
+  'song3.mp3'
+];
 
 //.. Create an HTML5 audio element
 const audioelemet = new Audio();
@@ -75,9 +91,7 @@ let currentTrack = 0;
 audioelemet.src = playlist[currentTrack];
 
 //.. Play the current track when the audio element is clicked
-audioelemet.addEventListener('click', () => {
-  audioelemet.play();
-});
+audioelemet.addEventListener('click', () => {audioelemet.play();});
 
 //.. When the current track ends, play the next track in the playlist
 audioelemet.addEventListener('ended', () => {
@@ -89,7 +103,7 @@ audioelemet.addEventListener('ended', () => {
   audioelemet.play();
 });
 audioelemet.play();
-//.. Add the audio element to the page
+//.. Add the audio element to the page 
 document.body.appendChild(audioelemet);
 //-------------*/
 
@@ -113,10 +127,6 @@ audioElement.addEventListener('ended', function() {
 });
 document.getElementById("demo").innerHTML =d;
 //audioElement.play();  */
-
-
-
-R
 
 function random_bg_color() {
 

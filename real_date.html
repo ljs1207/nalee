@@ -1,0 +1,32 @@
+<!--실시간 보기  --> 
+
+<!DOCTYPE html>
+<html>
+<body>
+<div class="onload" onclick="startTime()">현재시간보기</div>
+
+<h2>JavaScript Clock</h2>
+<div id="txt">실시간</div>
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime,1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+
+</script>
+
+
+</body>
+</html>
+
