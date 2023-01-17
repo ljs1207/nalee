@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="onload" onclick="startTime()">현재시간보기</div>
+  <!--div class="onload" onclick="startTime()">현재시간보기</!--div>-->
    <p id ="demo"></p>
   
   <div class="player">
@@ -21,8 +21,8 @@
       <div class="track-art">Track Art</div>
       <div class="track-name">Track Name</div>
       <div class="track-artist">Track Artist</div>
-      <!--<div id="txt">실시간</div>   -->
-      <p id="cur-date">Today</p>
+      <div id="timer">Timer</div>   
+      <p id="cur-clock" onclick="startTime()">현재시간보기</p>
     </div>
     <div class="buttons">
       <div class="prev-track" onclick="prevTrack()"><i class="fa fa-step-backward fa-2x"></i></div>

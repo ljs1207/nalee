@@ -1,11 +1,7 @@
-
-
 let now_playing = document.querySelector(".now-playing");
 let track_art = document.querySelector(".track-art");
 let track_name = document.querySelector(".track-name");
 let track_artist = document.querySelector(".track-artist");
-
-
  
 let playpause_btn = document.querySelector(".playpause-track");
 let next_btn = document.querySelector(".next-track");
@@ -14,46 +10,23 @@ let prev_btn = document.querySelector(".prev-track");
 let seek_slider = document.querySelector(".seek_slider");
 let volume_slider = document.querySelector(".volume_slider");
 let curr_time = document.querySelector(".current-time");
-
 let total_duration = document.querySelector(".total-duration");
+
 let track_index = 0;
 let isPlaying = false;
 let updateTimer; 
-
-// 실시간 보기
-
-
-function startTime(){
-  const d = new Date();
-  let h = d.getHours();
-  let m = d.getMinutes();
-  let s = d.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('cur-date').innerHTML =  h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-  // const days=["일","월","화","수","목","금","토",];
-  // let day = days[d.getDay()];
-  //  document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day; 
-}
-function checkTime(i) {
-  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-  return i;
-}
-
- 
    
 // Create new audio element
 let curr_track = document.createElement('audio');
 
 // Define the tracks that have to be played
-/*let track_list = [
+let track_list = [
   {
     name: "팝송",
     artist: "잊어야할 사랑",
     autho:"김광석",
     image: "./img/freedom.jpg",
-    path: "./mus/song1.mp3"
+    path: "./mus/song4.mp3"
   },
   {
     name: "7080 가요",
@@ -70,49 +43,40 @@ let curr_track = document.createElement('audio');
     path: "./mus/135GT.mp3"
   },
   {
-    name: "펜타토닉 Pentatonic A단조 연습",
+    name: "펜타토닉(Pentatonic)\n\ A단조 연습",
     artist: "Groove Funk",
     autho:"jamtrace",
     image: "./img/jamtrace.png",
     path: "./mus/jamtrace/groove funk.mp3"
   },
-]; */
-
-  //document.getElementById("cur-date").innerText =d;
- // document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
-
-//------- Create an array of audio file URLs
-const playlist = [  
-  './mus/song1.mp3',  
-  'song2.mp3',  
-  'song3.mp3'
-];
+]; 
 
 //.. Create an HTML5 audio element
+let currentTrack = 0;
 const audioelemet = new Audio();
 
 //.. Set the first song as the current track
-let currentTrack = 0;
-audioelemet.src = playlist[currentTrack];
+
+audioelemet.src = track_list[currentTrack];
 
 //.. Play the current track when the audio element is clicked
 audioelemet.addEventListener('click', () => {audioelemet.play();});
 
-//.. When the current track ends, play the next track in the playlist
+//.. When the current track ends, play the next track in the track_list
 audioelemet.addEventListener('ended', () => {
   currentTrack++;
-  if (currentTrack >= playlist.length) {
+  if (currentTrack >= track_list.length) {
     currentTrack = 0;
   }
-  audioelemet.src = playlist[currentTrack];
+  audioelemet.src = track_list[currentTrack];
   audioelemet.play();
 });
-audioelemet.play();
-//.. Add the audio element to the page 
+audioelemet.play();  //play 주축========================
+// Add the audio element to the page 
 document.body.appendChild(audioelemet);
 //-------------*/
 
-/*let playlist = [
+/*let track_list = [
   'song1.mp3',
   'song2.mp3',
   'song3.mp3'
@@ -120,19 +84,46 @@ document.body.appendChild(audioelemet);
 
 let currentSong = 0;
 
-let audioElement = new Audio(playlist[currentSong]);
+let audioElement = new Audio(track_list[currentSong]);
 
 audioElement.addEventListener('ended', function() {
   currentSong++;
-  if (currentSong >= playlist.length) {
+  if (currentSong >= track_list.length) {
     currentSong = 0;
   }
-  audioElement.src = playlist[currentSong];
+  audioElement.src = track_list[currentSong];
   //audioElement.play();
 });
 document.getElementById("demo").innerHTML =d;
 //audioElement.play();  */
 
+
+// 실 시간 보기
+// const d = new Date();
+//   const days=["일","월","화","수","목","금","토",];
+//   let day = days[d.getDay()];
+//   document.getElementById("to-day").innerHTML= d.toLocaleString() + "/  "+ day; 
+  
+function startTime(){
+  const d = new Date();
+  let h = d.getHours();
+  let m = d.getMinutes();
+  let s = d.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  //document.getElementById('cur-clock').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+
+  //const d = new Date();
+  const days=["일","월","화","수","목","금","토",];
+  let day = days[d.getDay()];
+  document.getElementById("cur-clock").innerHTML= d.toLocaleString() + "/  "+ day; 
+    
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
 function random_bg_color() {
 
   //.. Get a number between 64 to 256 (for getting lighter colors)
@@ -176,8 +167,8 @@ loadTrack(track_index);
 function playpauseTrack() {
   if (!isPlaying) playTrack();
   else pauseTrack();
-  const d = new Date();
-  document.getElementById("cur-date").innerHTML= d.toLocaleString() + "/  "+ day;
+  // const d = new Date();
+  // document.getElementById("cur-clock").innerHTML= d.toLocaleString() + "/  "+ day;
 }
 
 function playTrack() {
