@@ -22,25 +22,25 @@ let curr_track = document.createElement('audio');
 // Define the tracks that have to be played
 let track_list = [
   {
-    name: "팝송",
-    artist: "잊어야할 사랑",
+    name: "7080 가요",
+    artist: "서른즈음에",
     autho:"김광석",
     image: "./img/freedom.jpg",
-    path: "./mus/song4.mp3"
+    path: "./mus/kpo1.mp3"
   },
   {
     name: "7080 가요",
     artist: "사랑이야",
     autho:"해바라기",
     image: "./img/kpop.jpg",
-    path: "./mus/사랑으로.mp3"
+    path: "./mus/kpo2.mp3"
   },
   {
     name: "Guitar Hymns",
     artist: "135장 통기타 찬송가",
     autho:"기타:임재수",
     image: "./img/tonggt.jpg",
-    path: "./mus/135GT.mp3"
+    path: "./mus/cgt_h135.mp3"
   },
   {
     name: "펜타토닉(Pentatonic)\n\ A단조 연습",
@@ -75,12 +75,6 @@ audioelemet.play();  //play 주축========================
 // Add the audio element to the page 
 document.body.appendChild(audioelemet);
 //-------------*/
-
-/*let track_list = [
-  'song1.mp3',
-  'song2.mp3',
-  'song3.mp3'
-]; 
 
 let currentSong = 0;
 
