@@ -39,8 +39,15 @@ let track_list = [
     name: "Guitar Hymns",
     artist: "135장 통기타 찬송가",
     autho:"기타:임재수",
-    image: "./img/tonggt.jpg",
+    image: "./img/tonggt.png",
     path: "./mus/cgt_h135.mp3"
+  },
+  {
+    name: "한국가곡",
+    artist: "모란꽃 피는",
+    autho:"곽신영",
+    image: "./img/tonggt.jpg",
+    path: "./mus/kli1.mp3"
   },
   {
     name: "펜타토닉(Pentatonic)\n\ A단조 연습",
