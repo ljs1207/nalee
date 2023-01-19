@@ -22,25 +22,26 @@ let curr_track = document.createElement('audio');
 // Define the tracks that have to be played
 let track_list = [
   {
-    name: "7080 가요",
+    name: "",
+    artist: "기타연주곡",
+    autho:"(세계민요_1)",
+    image: "./img/kpop.jpg",
+    path: "./mus/guitar_fav/fav1.mp3"
+    
+  },
+  {
+    name: "",
+    artist: "기타연주곡",
+    autho:"세계민요_2",
+    image: "./img/kpop.jpg",
+    path: "./mus/guitar_fav/fav2.mp3"
+  },
+  {
+    name: "Pentatonic a단조 연습곡",
     artist: "서른즈음에",
     autho:"김광석",
     image: "./img/freedom.jpg",
-    path: "./mus/kpo1.mp3"
-  },
-  {
-    name: "7080 가요",
-    artist: "사랑이야",
-    autho:"해바라기",
-    image: "./img/kpop.jpg",
-    path: "./mus/kpo2.mp3"
-  },
-  {
-    name: "Guitar Hymns",
-    artist: "135장 통기타 찬송가",
-    autho:"기타:임재수",
-    image: "./img/tonggt.png",
-    path: "./mus/cgt_h135.mp3"
+    path: "./mus/jamtrace/groove funky"
   },
   {
     name: "한국가곡",
